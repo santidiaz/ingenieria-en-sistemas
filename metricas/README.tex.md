@@ -1,6 +1,6 @@
 <h1 align="center">Métricas</h1>
 
-Más info: https://aulas.ort.edu.uy/pluginfile.php/206903/course/section/37747/Principles_and_Patterns.pdf
+Más info: https://aulas.ort.edu.uy/pluginfile.php/206903/course/section/37747/Principles_and_Patterns.pdf.
 
 ## Conceptos
 
