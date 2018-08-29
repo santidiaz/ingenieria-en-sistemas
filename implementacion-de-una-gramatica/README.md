@@ -6,11 +6,11 @@
 
 ## Introducción
 
-En este apartado implementaremos la gramática de un lenguaje parecido al `lenguaje de programación C`. Lo llamaremos `CPP` y lo iremos construyendo desde arriba hacia abajo (Desde las definiciones más grandes hasta las más chicas) escribiendo las reglas apropiadas en cada paso.
+A continuación implementaremos la gramática de un lenguaje parecido a [`C`](https://es.wikipedia.org/wiki/C_(lenguaje_de_programación)). Lo llamaremos `CPP` y lo iremos construyendo desde arriba hacia abajo (Desde las definiciones más grandes hasta las más chicas) escribiendo las reglas apropiadas en cada paso.
 
 ## Construyendo la Gramática
 
-### Programa
+&nbsp;
 
 Un **programa** es una secuencia de *definiciones*:
 
@@ -26,16 +26,18 @@ comment "//" ;
 comment "/*" "*/" ;
 ```
 
-### Función
+&nbsp;
 
-Una **definición de función** tiene un *tipo*, un *nombre*, una *lista de argumentos* y un *cuerpo*. La **lista de argumentos** se escribe entre paréntesis y los *argumentos* se separan con comas. El **cuerpo** es una lista de *sentencias* escrita entre llaves. Por ejemplo:
+Una **definición de función** tiene un *tipo*, un *nombre*, una *lista de argumentos* y un *cuerpo*. La **lista de argumentos** se escribe entre paréntesis y los *argumentos* se separan con comas. El **cuerpo** es una lista de *sentencias* escrita entre llaves:
 
-```c
-int foo(double x, int y)
-{
-    return y + 9;
-}
-```
+<details>
+    <summary>Ejemplo</summary>
+    
+    int foo(double x, int y)
+    {
+        return y + 9;
+    }
+</details>
 
 ```
 DFun.   Def ::= Type Id "(" [Arg] ")" "{" [Stm] "}" ;
@@ -43,7 +45,7 @@ separator Arg "," ;
 terminator Stm "" ;
 ```
 
-### Argumento
+&nbsp;
 
 Un **argumento** tiene un *tipo* y un *identificador*:
 
@@ -51,7 +53,7 @@ Un **argumento** tiene un *tipo* y un *identificador*:
 ADecl.  Arg ::= Type Id ;
 ```
 
-### Sentencias
+&nbsp;
 
 Una **sentencia** siempre termina en punto y coma y puede ser: 
 
@@ -61,7 +63,7 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
     SExp.   Stm ::= Exp ";" ;
     ```
 
-    Las expresiones pueden ser las que se especifican en la sección [Expresiones](#expresiones).
+    Una expresión puede ser cualquiera de las definidas en la tabla de más abajo.
 
 * Cualquier **declaración de variable**:
 
@@ -79,45 +81,57 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
     SReturn. Stm ::= "return" Exp ";" ;   
     ```
 
-* Un **while** seguido de una *expresión* entre paréntesis seguida de una *sentencia*. Por ejemplo: 
+* Un **while** seguido de una *expresión* entre paréntesis seguida de una *sentencia*: 
 
-    ```c
-    while (i < 10) i++;
-    ```
+    <details>
+        <summary>Ejemplo</summary>
+
+        while (i < 10) i++;
+    </details>
+    
+    &nbsp;
 
     ```
     SWhile.  Stm ::= "while" "(" Exp ")" Stm ;
     ```
 
-* Un **if** seguido de una *expresión* entre paréntesis, una *sentencia*, un *else*, y otra *sentencia*. Por ejemplo:
+* Un **if** seguido de una *expresión* entre paréntesis, una *sentencia*, un **else**, y otra *sentencia*:
 
-    ```c
-    if (x > 0) 
-        return x; 
-    else 
-        return y;
-    ```
+    <details>
+        <summary>Ejemplo</summary>
+    
+        if (x > 0) 
+            return x; 
+        else 
+            return y;
+    </details>
+    
+    &nbsp;
 
     ```
     SIfElse. Stm ::= "if" "(" Exp ")" Stm "else" Stm ;
     ```
 
-* Un **bloque** (Cualquier lista de sentencias, incluida la lista vacía) entre llaves. Por ejemplo:
+* Un **bloque** (Cualquier lista de sentencias, incluida la lista vacía) entre llaves:
 
-    ```c
-    {
-        int i = 2;
+    <details>
+        <summary>Ejemplo</summary>
+    
         {
+            int i = 2;
+            {
+            }
+            i++;
         }
-        i++;
-    }
-    ```
+    </details>
+    
+    &nbsp;
 
     ```
     SBlock.  Stm ::= "{" [Stm] "}" ;
     ```
 
-### Expresiones
+&nbsp;
 
 Las expresiones son las especificadas en la siguiente tabla que además otorga los niveles de precedencia. Los operadores infijos se asumen *left-associative*, excepto las asignaciones que son *right-associative*.
 
@@ -137,7 +151,7 @@ Nivel | Expresión                            | Explicación
 3     | `e || e`                             | disjunción (*or*)
 2     | `v = e`                              | asignación
 
-Las reglas correspondientes a esta tabla son las siguientes:
+Las reglas correspondientes a esta tabla:
 
 ```
 EInt.    Exp15 ::= Integer ;
@@ -171,7 +185,7 @@ coercions Exp 15 ;
 separator Exp "," ;
 ```
 
-### Tipos
+&nbsp;
 
 Los **tipos** disponibles son `bool`, `double`, `int`, `string` y `void`:
 
@@ -183,7 +197,7 @@ Tstring. Type ::= "string" ;
 Tvoid.   Type ::= "void" ;
 ```
 
-### Identificadores
+&nbsp;
 
 Un **nombre** o **identificador** es una letra seguida de una lista de letras, dígitos y *underscores*:
 
@@ -191,9 +205,7 @@ Un **nombre** o **identificador** es una letra seguida de una lista de letras, d
 token Id (letter (letter | digit | '_')*) ;
 ```
 
-## Implementando el Lenguaje
-
-En este apartado implementaremos el *lexer* y el *parser* haciendo uso de la herramienta `bnfc`. Para eso:
+## Implementación
 
 1. Descargar el archivo [`cpp.cf`]() que contiene la definición del lenguaje (todas las reglas que definimos anteriormente).
 
@@ -203,7 +215,7 @@ En este apartado implementaremos el *lexer* y el *parser* haciendo uso de la her
 
 4. Para probarlo podemos hacer lo siguiente:
 
-    Crear un archivo `ejemplo.cpp` con el siguiente contenido:
+    1. Crear un archivo `ejemplo.cpp` con el siguiente contenido:
 
     ```c
     // no "hello world" here 
@@ -215,13 +227,13 @@ En este apartado implementaremos el *lexer* y el *parser* haciendo uso de la her
     }
     ```
 
-    y ejecutar:
+    2. Ejecutar:
 
     ```
     cat ejemplo.cpp | ./TestCpp
     ```
 
-    cuya salida debería ser:
+    3. La salida debería ser:
 
     ```
     Parse Successful!
@@ -237,11 +249,4 @@ En este apartado implementaremos el *lexer* y el *parser* haciendo uso de la her
     else return false ;
     }
     ```
-
-
-
     
-
-
-
-
