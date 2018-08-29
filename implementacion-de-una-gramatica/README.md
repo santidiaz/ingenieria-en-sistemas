@@ -123,7 +123,7 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
 
 &nbsp;
 
-Una **expresión** puede ser cualquiera de las que se especifican en la siguiente tabla (que además describe los niveles de precedencia entre ellas). Los operadores infijos se asumen *left-associative*, excepto las asignaciones que son *right-associative*.
+Una **expresión** puede ser cualquiera de las que se especifican en la siguiente tabla (que además describe los niveles de precedencia). Los operadores infijos se asumen *left-associative*, excepto las asignaciones que son *right-associative*.
 
 Nivel | Expresión                            | Explicación
 ------|--------------------------------------|------------------------------------------
@@ -138,7 +138,7 @@ Nivel | Expresión                            | Explicación
 9     | `e < e`, `e > e`, `e >= e`, `e <= e` | comparación
 8     | `e == e`, `e != e`                   | igualdad, desigualdad
 4     | `e && e`                             | conjunción (*and*)
-3     | `e || e`                             | disjunción (*or*)
+3     | `e \|\| e`                           | disjunción (*or*)
 2     | `v = e`                              | asignación
 
 Las reglas que representan esta tabla son:
