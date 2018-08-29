@@ -8,7 +8,7 @@
 
 A continuación implementaremos la gramática de un lenguaje parecido a [`C`](https://es.wikipedia.org/wiki/C_(lenguaje_de_programación)). Lo llamaremos `CPP` y lo iremos construyendo desde arriba hacia abajo (Desde las definiciones más grandes hasta las más chicas) escribiendo las reglas apropiadas en cada paso.
 
-## Construyendo la Gramática
+## Definición
 
 Un **programa** es una secuencia de definiciones:
 
