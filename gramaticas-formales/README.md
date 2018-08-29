@@ -2,7 +2,7 @@
 
 ## Bibliografía
 
-[Tasistro, Á., (2017), *Gramáticas Formales*. Montevideo, Uruguay.](https://aulas.ort.edu.uy/pluginfile.php/232213/mod_resource/content/6/gramaticas%20formales.pdf)
+[Tasistro, Á. (2017). *Gramáticas Formales*. Montevideo, Uruguay.](https://aulas.ort.edu.uy/pluginfile.php/232213/mod_resource/content/6/gramaticas%20formales.pdf)
 
 ## Noción de Gramática Formal
 
