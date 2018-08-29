@@ -197,7 +197,7 @@ token Id (letter (letter | digit | '_')*) ;
 
 ## Implementación
 
-1. Descargar el archivo [`cpp.cf`]() que contiene la definición del lenguaje (todas las reglas que definimos anteriormente).
+1. Descargar el archivo [`cpp.cf`](https://raw.githubusercontent.com/agurodriguez/ort-ingdesoft-ldp/master/extras/implementacion-de-una-gramatica/cpp.cf) que contiene la definición del lenguaje (todas las reglas que definimos anteriormente).
 
 2. Ejecutar `bnfc -m cpp.cf` en el directorio donde se encuentra el archivo `.cf` para generar el código fuente del *lexer/parser*.
 
@@ -205,7 +205,7 @@ token Id (letter (letter | digit | '_')*) ;
 
 4. Para probarlo podemos hacer lo siguiente:
 
-    Crear un archivo `ejemplo.cpp` con el siguiente contenido:
+    Crear un archivo [`ejemplo.cpp`](https://raw.githubusercontent.com/agurodriguez/ort-ingdesoft-ldp/master/extras/implementacion-de-una-gramatica/ejemplo.cpp) con el siguiente contenido:
 
     ```c
     // no "hello world" here 
