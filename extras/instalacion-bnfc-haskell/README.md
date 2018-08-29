@@ -1,4 +1,4 @@
-<h1 align="center">Instalación BNFC</h1>
+<h1 align="center">Instalación BNFC + Haskell</h1>
 
 ## Instalación "todo de una"
 
