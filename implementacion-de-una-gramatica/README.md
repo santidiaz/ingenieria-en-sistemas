@@ -1,0 +1,247 @@
+<h1 align="center">Implementación de una Gramática</h1>
+
+## Bibliografía
+
+[Ranta, A. (2012). *Implementing programming languages: An introduction to compilers and interpreters*. London, UK: College Publications, pp.32-36.](https://aulas.ort.edu.uy/pluginfile.php/232213/mod_resource/content/6/gramaticas%20formales.pdf)
+
+## Introducción
+
+En este apartado implementaremos la gramática de un lenguaje parecido al `lenguaje de programación C`. Lo llamaremos `CPP` y lo iremos construyendo desde arriba hacia abajo (Desde las definiciones más grandes hasta las más chicas) escribiendo las reglas apropiadas en cada paso.
+
+## Construyendo la Gramática
+
+### Programa
+
+Un **programa** es una secuencia de *definiciones*:
+
+```
+PDefs.  Program ::= [Def] ;
+terminator Def "" ;
+```
+
+Un programa puede contener comentarios, que deberían ser ignorados por el compilador. Los comentarios pueden comenzar con el símoblo `//` y extenderse hasta el final de la línea o también pueden comenzar con `/*` y extenderse hasta el próximo `*/`:
+
+```
+comment "//" ;
+comment "/*" "*/" ;
+```
+
+### Función
+
+Una **definición de función** tiene un *tipo*, un *nombre*, una *lista de argumentos* y un *cuerpo*. La **lista de argumentos** se escribe entre paréntesis y los *argumentos* se separan con comas. El **cuerpo** es una lista de *sentencias* escrita entre llaves. Por ejemplo:
+
+```c
+int foo(double x, int y)
+{
+    return y + 9;
+}
+```
+
+```
+DFun.   Def ::= Type Id "(" [Arg] ")" "{" [Stm] "}" ;
+separator Arg "," ;
+terminator Stm "" ;
+```
+
+### Argumento
+
+Un **argumento** tiene un *tipo* y un *identificador*:
+
+```
+ADecl.  Arg ::= Type Id ;
+```
+
+### Sentencias
+
+Una **sentencia** siempre termina en punto y coma y puede ser: 
+
+* Cualquier **expresión**:
+
+    ```
+    SExp.   Stm ::= Exp ";" ;
+    ```
+
+    Las expresiones pueden ser las que se especifican en la sección [Expresiones](#expresiones).
+
+* Cualquier **declaración de variable**:
+
+    ```
+    SDecl.  Stm ::= Type Id ";" ;
+    SDecls. Stm ::= Type Id "," [Id] ";" ;
+    SInit.  Stm ::= Type Id "=" Exp ";" ;
+    ```
+
+    Una declaración de variable puede ser un tipo y una variable (Regla `SDecl`), un tipo y varias variables (Regla `SDecls`) o un tipo y una variable inicializada (Regla `SInit`).
+
+* Un **return**:
+
+    ```
+    SReturn. Stm ::= "return" Exp ";" ;   
+    ```
+
+* Un **while** seguido de una *expresión* entre paréntesis seguida de una *sentencia*. Por ejemplo: 
+
+    ```c
+    while (i < 10) i++;
+    ```
+
+    ```
+    SWhile.  Stm ::= "while" "(" Exp ")" Stm ;
+    ```
+
+* Un **if** seguido de una *expresión* entre paréntesis, una *sentencia*, un *else*, y otra *sentencia*. Por ejemplo:
+
+    ```c
+    if (x > 0) 
+        return x; 
+    else 
+        return y;
+    ```
+
+    ```
+    SIfElse. Stm ::= "if" "(" Exp ")" Stm "else" Stm ;
+    ```
+
+* Un **bloque** (Cualquier lista de sentencias, incluida la lista vacía) entre llaves. Por ejemplo:
+
+    ```c
+    {
+        int i = 2;
+        {
+        }
+        i++;
+    }
+    ```
+
+    ```
+    SBlock.  Stm ::= "{" [Stm] "}" ;
+    ```
+
+### Expresiones
+
+Las expresiones son las especificadas en la siguiente tabla que además otorga los niveles de precedencia. Los operadores infijos se asumen *left-associative*, excepto las asignaciones que son *right-associative*.
+
+Nivel | Expresión                            | Explicación
+------|--------------------------------------|------------------------------------------
+15    | literal                              | literal (*integer*, *float*, *string*, *boolean*)
+15    | identificador                        | nombres y variables
+15    | `f(e, ..., e)`                       | llamada a una función
+14    | `v++`, `v--`                         | post-incremento, post-decremento
+13    | `++v`, `--v`                         | pre-incremento, pre-decremento
+13    | `-e`                                 | negación numérica
+12    | `e * e`, `e / e`                     | multiplicación, división
+11    | `e + e`, `e - e`                     | suma, resta
+9     | `e < e`, `e > e`, `e >= e`, `e <= e` | comparación
+8     | `e == e`, `e != e`                   | igualdad, desigualdad
+4     | `e && e`                             | conjunción (*and*)
+3     | `e || e`                             | disjunción (*or*)
+2     | `v = e`                              | asignación
+
+Las reglas correspondientes a esta tabla son las siguientes:
+
+```
+EInt.    Exp15 ::= Integer ;
+EDouble. Exp15 ::= Double ;
+EString. Exp15 ::= String ;
+ETrue.   Exp15 ::= "true" ;
+EFalse.  Exp15 ::= "false" ;
+EId.     Exp15 ::= Id ;
+ECall.   Exp15 ::= Id "(" [Exp] ")" ;
+EPIncr.  Exp14 ::= Exp15 "++" ;
+EPDecr.  Exp14 ::= Exp15 "--" ;
+EIncr.   Exp13 ::= "++" Exp14 ;
+EDecr.   Exp13 ::= "--" Exp14 ;
+ENeg.    Exp13 ::= "-" Exp14 ;
+EMul.    Exp12 ::= Exp12 "*" Exp13 ;
+EDiv.    Exp12 ::= Exp12 "/" Exp13 ;
+EAdd.    Exp11 ::= Exp11 "+" Exp12 ;
+ESub.    Exp11 ::= Exp11 "-" Exp12 ;
+ELt.     Exp9  ::= Exp9 "<" Exp10 ;
+EGt.     Exp9  ::= Exp9 ">" Exp10 ;
+ELEq.    Exp9  ::= Exp9 "<=" Exp10 ;
+EGEq.    Exp9  ::= Exp9 ">=" Exp10 ;
+
+EEq.     Exp8  ::= Exp8 "==" Exp9 ;
+ENEq.    Exp8  ::= Exp8 "!=" Exp9 ;
+EAnd.    Exp4  ::= Exp4 "&&" Exp5 ;
+EOr.     Exp3  ::= Exp3 "||" Exp4 ;
+EAss.    Exp2  ::= Exp3 "=" Exp2 ;
+
+coercions Exp 15 ;
+separator Exp "," ;
+```
+
+### Tipos
+
+Los **tipos** disponibles son `bool`, `double`, `int`, `string` y `void`:
+
+```
+Tbool.   Type ::= "bool" ;
+Tdouble. Type ::= "double" ;
+Tint.    Type ::= "int" ;
+Tstring. Type ::= "string" ;
+Tvoid.   Type ::= "void" ;
+```
+
+### Identificadores
+
+Un **nombre** o **identificador** es una letra seguida de una lista de letras, dígitos y *underscores*:
+
+```
+token Id (letter (letter | digit | '_')*) ;
+```
+
+## Implementando el Lenguaje
+
+En este apartado implementaremos el *lexer* y el *parser* haciendo uso de la herramienta `bnfc`. Para eso:
+
+1. Descargar el archivo [`cpp.cf`]() que contiene la definición del lenguaje (todas las reglas que definimos anteriormente).
+
+2. Ejecutar `bnfc -m cpp.cf` en el directorio donde se encuentra el archivo `.cf` para generar el código fuente del *lexer/parser*.
+
+3. Ejecutar `make` en el mismo directorio para compilar el código fuente y obtener el ejecutable (`TestCpp`). Esta aplicación recibe una cadena de caracteres del lenguaje `CPP`, la *parsea* y devuelve el *árbol de sintaxis abstracta* correspondiente.
+
+4. Para probarlo podemos hacer lo siguiente:
+
+    Crear un archivo `ejemplo.cpp` con el siguiente contenido:
+
+    ```c
+    // no "hello world" here 
+    void fn(int param1, bool param2) {
+        if (param1 > 0 && param2 == true) 
+            return true;
+        else
+            return false;
+    }
+    ```
+
+    y ejecutar:
+
+    ```
+    cat ejemplo.cpp | ./TestCpp
+    ```
+
+    cuya salida debería ser:
+
+    ```
+    Parse Successful!
+
+    [Abstract Syntax]
+
+    PDefs [DFun Tvoid (Id "fn") [ADecl Tint (Id "param1"), ADecl Tbool (Id "param2")] [SIfElse (EAnd (EGt (EId (Id "param1")) (EInt 0)) (EEq (EId (Id "param2")) ETrue)) (SReturn ETrue) (SReturn EFalse)]]
+
+    [Linearized tree]
+
+    void fn (int param1, bool param2){
+    if (param1 > 0 && param2 == true)return true ;
+    else return false ;
+    }
+    ```
+
+
+
+    
+
+
+
+
