@@ -201,11 +201,11 @@ token Id (letter (letter | digit | '_')*) ;
 
 2. Ejecutar `bnfc -m cpp.cf` en el directorio donde se encuentra el archivo `.cf` para generar el código fuente del *lexer/parser*.
 
-3. Ejecutar `make` en el mismo directorio para compilar el código fuente y obtener el ejecutable (`TestCpp`). Esta aplicación recibe una cadena de caracteres del lenguaje `CPP`, la *parsea* y devuelve el *árbol de sintaxis abstracta* correspondiente.
+3. Ejecutar `make` en el mismo directorio para compilar el código fuente y obtener el ejecutable (`TestCpp`). Esta aplicación recibe una cadena de caracteres del lenguaje `CPP`, la *parsea* y devuelve el árbol de sintaxis abstracta correspondiente.
 
 4. Para probarlo podemos hacer lo siguiente:
 
-    1. Crear un archivo `ejemplo.cpp` con el siguiente contenido:
+    Crear un archivo `ejemplo.cpp` con el siguiente contenido:
 
     ```c
     // no "hello world" here 
@@ -217,13 +217,13 @@ token Id (letter (letter | digit | '_')*) ;
     }
     ```
 
-    2. Ejecutar:
+    Ejecutar:
 
     ```
     cat ejemplo.cpp | ./TestCpp
     ```
 
-    3. La salida debería ser:
+    Verificar que la salida sea:
 
     ```
     Parse Successful!
