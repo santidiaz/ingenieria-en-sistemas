@@ -10,9 +10,7 @@ A continuación implementaremos la gramática de un lenguaje parecido a [`C`](ht
 
 ## Construyendo la Gramática
 
-&nbsp;
-
-Un **programa** es una secuencia de *definiciones*:
+Un **programa** es una secuencia de definiciones:
 
 ```
 PDefs.  Program ::= [Def] ;
@@ -28,7 +26,7 @@ comment "/*" "*/" ;
 
 &nbsp;
 
-Una **definición de función** tiene un *tipo*, un *nombre*, una *lista de argumentos* y un *cuerpo*. La **lista de argumentos** se escribe entre paréntesis y los *argumentos* se separan con comas. El **cuerpo** es una lista de *sentencias* escrita entre llaves:
+Una **definición de función** tiene un tipo, un nombre, una lista de argumentos y un cuerpo. La lista de argumentos se escribe entre paréntesis y los argumentos se separan con comas. El cuerpo es una lista de sentencias escrita entre llaves:
 
 <details>
     <summary>Ejemplo</summary>
@@ -47,7 +45,7 @@ terminator Stm "" ;
 
 &nbsp;
 
-Un **argumento** tiene un *tipo* y un *identificador*:
+Un **argumento** tiene un tipo y un identificador:
 
 ```
 ADecl.  Arg ::= Type Id ;
@@ -63,8 +61,6 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
     SExp.   Stm ::= Exp ";" ;
     ```
 
-    Una expresión puede ser cualquiera de las definidas en la tabla de más abajo.
-
 * Cualquier **declaración de variable**:
 
     ```
@@ -73,29 +69,27 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
     SInit.  Stm ::= Type Id "=" Exp ";" ;
     ```
 
-    Una declaración de variable puede ser un tipo y una variable (Regla `SDecl`), un tipo y varias variables (Regla `SDecls`) o un tipo y una variable inicializada (Regla `SInit`).
+    Una declaración de variable puede ser un tipo y una variable (SDecl), un tipo y varias variables (SDecls) o un tipo y una variable inicializada (SInit).
 
-* Un **return**:
+* Un `return`:
 
     ```
     SReturn. Stm ::= "return" Exp ";" ;   
     ```
 
-* Un **while** seguido de una *expresión* entre paréntesis seguida de una *sentencia*: 
+* Un `while` seguido de una expresión entre paréntesis seguida de una sentencia: 
 
     <details>
         <summary>Ejemplo</summary>
 
         while (i < 10) i++;
     </details>
-    
-    &nbsp;
 
     ```
     SWhile.  Stm ::= "while" "(" Exp ")" Stm ;
     ```
 
-* Un **if** seguido de una *expresión* entre paréntesis, una *sentencia*, un **else**, y otra *sentencia*:
+* Un `if` seguido de una expresión entre paréntesis, una sentencia, un `else`, y otra sentencia:
 
     <details>
         <summary>Ejemplo</summary>
@@ -105,8 +99,6 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
         else 
             return y;
     </details>
-    
-    &nbsp;
 
     ```
     SIfElse. Stm ::= "if" "(" Exp ")" Stm "else" Stm ;
@@ -124,8 +116,6 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
             i++;
         }
     </details>
-    
-    &nbsp;
 
     ```
     SBlock.  Stm ::= "{" [Stm] "}" ;
@@ -133,7 +123,7 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
 
 &nbsp;
 
-Las expresiones son las especificadas en la siguiente tabla que además otorga los niveles de precedencia. Los operadores infijos se asumen *left-associative*, excepto las asignaciones que son *right-associative*.
+Las **expresiones** son las especificadas en la siguiente tabla que además otorga los niveles de precedencia. Los operadores infijos se asumen *left-associative*, excepto las asignaciones que son *right-associative*.
 
 Nivel | Expresión                            | Explicación
 ------|--------------------------------------|------------------------------------------
@@ -151,7 +141,7 @@ Nivel | Expresión                            | Explicación
 3     | `e || e`                             | disjunción (*or*)
 2     | `v = e`                              | asignación
 
-Las reglas correspondientes a esta tabla:
+Las reglas correspondientes a esta tabla son las siguientes:
 
 ```
 EInt.    Exp15 ::= Integer ;
@@ -199,7 +189,7 @@ Tvoid.   Type ::= "void" ;
 
 &nbsp;
 
-Un **nombre** o **identificador** es una letra seguida de una lista de letras, dígitos y *underscores*:
+Por último, un **nombre** o **identificador** es una letra seguida de una lista de letras, dígitos y *underscores*:
 
 ```
 token Id (letter (letter | digit | '_')*) ;
