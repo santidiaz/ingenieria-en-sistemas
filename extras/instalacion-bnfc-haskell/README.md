@@ -11,6 +11,10 @@
 
 4. Ejecutar `vagrant ssh` para acceder a la máquina virtual con todos los componentes necesarios (`bnfc`, `ghc`, `make`, etc) para el curso.
 
+5. Ejecutar `cd /vagrant` para moverse al directorio con los archivos del proyecto (Directorio en la máquina host donde se encuentra el archivo `Vagrantfile`).
+
+Para ver más info sobre el funcionamiento de Vagrant visitar https://www.vagrantup.com/intro/getting-started/index.html.
+
 ## Instalación manual
 
 [TODO]
