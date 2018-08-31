@@ -30,7 +30,7 @@ Más info: https://angular.io/guide/architecture#modules
 
 ### Components
 
-Un *component* controla una parte de la pantalla llamada *view*. Un *component* es una clase de JavaScript que interactúa con la *view* a través de sus métodos y propiedades.
+Un *component* controla una parte de la pantalla llamada *view*. Un *component* es una clase de JavaScript que interactúa con la *view* a través de sus métodos y propiedades.
 
 ```js
 export class HeroListComponent implements OnInit {
@@ -53,7 +53,7 @@ Más info: https://angular.io/guide/architecture#components
 
 ### Templates
 
-Un *template* es una porción de código HTML que define como se renderiza un *component*.
+Un *template* es una porción de código HTML que define cómo se renderiza un *component*.
 
 ```html
 <h2>Hero List</h2>
@@ -135,7 +135,7 @@ Más info: https://angular.io/guide/architecture#services
 
 Dependency injection es un mecanismo para proveer nuevas instancias de una clase con todas las dependencias que esta requiere.
 
-Angular detecta que *services* requiere un *component* mirando el tipo de los parámetros de su constructor. Por ejemplo, el constructor de `HeroListComponent` requiere un `HeroService`. Luego de obtener las dependencias pide instancias al *Injector* para luego pasarlas como argumento al constructor de la instancia del *component*:
+Angular detecta qué *services* requiere un *component* mirando el tipo de los parámetros de su constructor. Por ejemplo, el constructor de `HeroListComponent` requiere un `HeroService`. Luego de obtener las dependencias pide instancias al *Injector* para luego pasarlas como argumento al constructor de la instancia del *component*:
 
 <p align="center"><img src="./img/dependency-injection.png" alt="Data Binding" /></p>
 
