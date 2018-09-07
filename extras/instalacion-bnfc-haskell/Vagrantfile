@@ -63,12 +63,13 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", inline: <<-SHELL
+  config.vm.provision "shell", privileged: false, inline: <<-SHELL
      sudo apt-get update -y
      sudo apt-get upgrade -y
      sudo apt-get install -y build-essential haskell-platform
      sudo wget -O /tmp/bnfc-2.8.tar.gz https://github.com/BNFC/bnfc/releases/download/v2.8/bnfc-2.8-linux64.tar.gz
      sudo tar xvf /tmp/bnfc-2.8.tar.gz -C /tmp
      sudo mv /tmp/bnfc-2.8-linux64/* /usr/local/bin
+     echo "cd /vagrant" >> .bash_profile
   SHELL
 end
