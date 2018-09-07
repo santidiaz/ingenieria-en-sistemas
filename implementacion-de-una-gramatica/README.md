@@ -2,7 +2,7 @@
 
 ## Bibliografía
 
-[Ranta, A. (2012). *Implementing programming languages: An introduction to compilers and interpreters*. London, UK: College Publications, pp.32-36.](https://aulas.ort.edu.uy/pluginfile.php/232213/mod_resource/content/6/gramaticas%20formales.pdf)
+[Ranta, A. (2012). *Implementing programming languages: An introduction to compilers and interpreters*. London, UK: College Publications, pp.32-36.](https://www.scribd.com/document/387692631/Ranta-A-2012-Implementing-Programming-Languages-An-Introduction-to-Compilers-and-Interpreters)
 
 ## Introducción
 
