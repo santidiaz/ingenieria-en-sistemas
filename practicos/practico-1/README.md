@@ -44,10 +44,10 @@ ASPost es una aplicación en Rails donde las personas pueden postear contenido y
 
 4. Agregamos los `has_many` en el archivo `app/models/user.rb`:
 
-    ```ruby
+    ```diff
     class User < ApplicationRecord
-        has_many :posts
-        has_many :comments
+    +    has_many :posts
+    +    has_many :comments
     end
     ```
 
