@@ -97,7 +97,7 @@ ASPost es una aplicación en Rails donde las personas pueden postear contenido y
         # Application configuration can go into files in config/initializers
         # -- all .rb files in that directory are automatically loaded after loading
         # the framework and any gems in your application.
-        +config.generators.jbuilder = false
+    +    config.generators.jbuilder = false
       end
     end
     ```
