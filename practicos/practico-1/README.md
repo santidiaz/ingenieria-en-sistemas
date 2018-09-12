@@ -42,7 +42,7 @@ ASPost es una aplicación en Rails donde las personas pueden postear contenido y
     rails generate migration AddUserToComments user:references
     ```
 
-4. Agregamos los `has_many` en el archivo `app/models/user.rb`:
+4. Agregamos los `has_many` en el archivo [`app/models/user.rb`](./src/app/models/user.rb):
 
     ```diff
     class User < ApplicationRecord
@@ -51,7 +51,7 @@ ASPost es una aplicación en Rails donde las personas pueden postear contenido y
     end
     ```
 
-5. Agregamos los `belongs_to` en los archivos `app/models/comment.rb` y `app/models/post.rb`:
+5. Agregamos los `belongs_to` en los archivos [`app/models/comment.rb`](./src/app/models/comment.rb) y [`app/models/post.rb`](./src/app/models/post.rb):
 
     ```diff
     class Comment < ApplicationRecord
@@ -65,7 +65,7 @@ ASPost es una aplicación en Rails donde las personas pueden postear contenido y
     end
     ```
     
-6. Agregamos los datos de ejemplo en `db/seeds.rb`:
+6. Agregamos los datos de ejemplo en [`db/seeds.rb`](./src/db/seeds.rb):
 
     ```diff
     +user = User.new name: 'Pedro', email: 'pedropicapiedra@gmail.com', password: '123456'
@@ -85,7 +85,7 @@ ASPost es una aplicación en Rails donde las personas pueden postear contenido y
 
 8. Creamos el controlador `users` "a mano" (sin generar todo el código con la herramienta `rails`):
 
-    Editamos el archivo `config/application.rb`:
+    Editamos el archivo [`config/application.rb`](./src/config/application.rb):
 
     ```diff
     module Practico1
@@ -108,7 +108,7 @@ ASPost es una aplicación en Rails donde las personas pueden postear contenido y
     rails generate controller Users new create update edit destroy index show --skip-template-engine
     ```
 
-    Editarmos el archivo `config/routes.rb` para agregar las rutas del recurso `users`:
+    Editarmos el archivo [`config/routes.rb`](./src/config/routes.rb) para agregar las rutas del recurso `users`:
 
     ```diff
     Rails.application.routes.draw do
@@ -126,7 +126,7 @@ ASPost es una aplicación en Rails donde las personas pueden postear contenido y
 
 9. Por último, creamos la *view* para la operación `index` del controlador:
 
-    Creamos el archivo `app/views/users/index.html.erb`:
+    Creamos el archivo [`app/views/users/index.html.erb`](./src/app/views/users/index.html.erb):
 
     ```erb
     <h1>Listado de usuarios</h1>
@@ -137,7 +137,7 @@ ASPost es una aplicación en Rails donde las personas pueden postear contenido y
     </ul>
     ```
 
-    Y asignamos la variable `@users` (utilizada en el archivo `.erb`) en el controlador (`app/controllers/users_controller.rb`):
+    Y asignamos la variable `@users` (utilizada en el archivo `.erb`) en el controlador ([`app/controllers/users_controller.rb`](./src/app/controllers/users_controller.rb)):
 
     ```diff
     class UsersController < ApplicationController
@@ -165,7 +165,7 @@ ASPost es una aplicación en Rails donde las personas pueden postear contenido y
     end
     ```
 
-10. Para ver la aplicación en acción debemos ejecutar el comando `rails server` e ir a [http://localhost:3000/users/index]() luego de que el servidor termine de iniciar:
+10. Para ver la aplicación en acción debemos ejecutar el comando `rails server` e ir a [http://localhost:3000/users/index](http://localhost:3000/users/index) luego de que el servidor termine de iniciar:
 
     ![](docs/screenshot.png)
 
