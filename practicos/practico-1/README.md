@@ -53,27 +53,27 @@ ASPost es una aplicación en Rails donde las personas pueden postear contenido y
 
 5. Agregamos los `belongs_to` en los archivos `app/models/comment.rb` y `app/models/post.rb`:
 
-    ```ruby
+    ```diff
     class Comment < ApplicationRecord
-        belongs_to :user
+    +    belongs_to :user
     end
     ```
 
-    ```ruby
+    ```diff
     class Post < ApplicationRecord
-        belongs_to :user
+    +    belongs_to :user
     end
     ```
     
 6. Agregamos los datos de ejemplo en `db/seeds.rb`:
 
-    ```ruby
-    user = User.new name: 'Pedro', email: 'pedropicapiedra@gmail.com', password: '123456'
-    user.save!
-
-    post = Post.new title: 'Un nuevo post!', content: 'Contenido de ejemplo', data: Date.new
-    post.user = user
-    post.save
+    ```diff
+    +user = User.new name: 'Pedro', email: 'pedropicapiedra@gmail.com', password: '123456'
+    +user.save!
+    +
+    +post = Post.new title: 'Un nuevo post!', content: 'Contenido de ejemplo', data: Date.new
+    +post.user = user
+    +post.save
     ```
 
 7. Ejecutamos los siguientes comandos para generar la base de datos con los datos de prueba:
@@ -87,8 +87,19 @@ ASPost es una aplicación en Rails donde las personas pueden postear contenido y
 
     Editamos el archivo `config/application.rb`:
 
-    ```ruby
-    config.generators.jbuilder = false
+    ```diff
+    module Practico1
+      class Application < Rails::Application
+        # Initialize configuration defaults for originally generated Rails version.
+        config.load_defaults 5.2
+
+        # Settings in config/environments/* take precedence over those specified here.
+        # Application configuration can go into files in config/initializers
+        # -- all .rb files in that directory are automatically loaded after loading
+        # the framework and any gems in your application.
+        +config.generators.jbuilder = false
+      end
+    end
     ```
 
     Creamos el esqueleto para el controlador:
@@ -99,7 +110,7 @@ ASPost es una aplicación en Rails donde las personas pueden postear contenido y
 
     Editarmos el archivo `config/routes.rb` para agregar las rutas del recurso `users`:
 
-    ```ruby
+    ```diff
     Rails.application.routes.draw do
         get 'users/new'
         get 'users/create'
@@ -128,7 +139,7 @@ ASPost es una aplicación en Rails donde las personas pueden postear contenido y
 
     Y asignamos la variable `@users` (utilizada en el archivo `.erb`) en el controlador (`app/controllers/users_controller.rb`):
 
-    ```ruby
+    ```diff
     class UsersController < ApplicationController
         def new
         end
@@ -146,7 +157,7 @@ ASPost es una aplicación en Rails donde las personas pueden postear contenido y
         end
 
         def index
-            @users = User.all
+    +        @users = User.all
         end
 
         def show
