@@ -6,17 +6,17 @@ https://aulas.ort.edu.uy/pluginfile.php/324178/mod_resource/content/1/S3C1.pdf
 
 ## Objetivos
 
-El objetivo de este práctico es realizar una aplicación de ejemplo que sirva como punto de partida para utilizar a lo largo del curso.
+El objetivo de este práctico es realizar una aplicación de ejemplo que sirva como punto de partida para utilizar a lo largo del curso.
 
-ASPost​ es una aplicación en Rails donde las personas pueden postear contenido y comentar los posts de otras personas.
+ASPost es una aplicación en Rails donde las personas pueden postear contenido y comentar los posts de otras personas.
 
 ## Diagrama de Clases
 
 ![](./docs/diagrama-de-clases.png)
 
-* **User​**: es el usuario del sistema, donde se conoce su nombre, email, password y la lista de posts que escribió.
-* **Post**​: contenido generado por cada usuario. Cada post tiene un título, contenido y la fecha de su creación. Por cada post se permite realizar comentarios.
-* **Comment​**: son los comentarios asociados a cada post realizados por usuarios. Cada comentario tiene un texto que es escrito por la persona que comenta y la fecha en cual fue realizado.
+* **User**: es el usuario del sistema, donde se conoce su nombre, email, password y la lista de posts que escribió.
+* **Post**: contenido generado por cada usuario. Cada post tiene un título, contenido y la fecha de su creación. Por cada post se permite realizar comentarios.
+* **Comment**: son los comentarios asociados a cada post realizados por usuarios. Cada comentario tiene un texto que es escrito por la persona que comenta y la fecha en cual fue realizado.
 
 ## Procedimiento
 
@@ -88,7 +88,7 @@ ASPost​ es una aplicación en Rails donde las personas pueden postear conteni
     Editamos el archivo `config/application.rb`:
 
     ```ruby
-    config.generators.jbuilder ​= ​false
+    config.generators.jbuilder = false
     ```
 
     Creamos el esqueleto para el controlador:
@@ -118,7 +118,7 @@ ASPost​ es una aplicación en Rails donde las personas pueden postear conteni
     Creamos el archivo `app/views/users/index.html.erb`:
 
     ```erb
-    <h1>​Listado de usuarios​</h1>
+    <h1>Listado de usuarios</h1>
     <ul>
         <% @users.each do |u| %>
             <li><%= u.name %>, <%= u.email %></li>
