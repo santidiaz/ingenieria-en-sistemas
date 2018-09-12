@@ -18,7 +18,7 @@ ASPost​ es una aplicación en Rails donde las personas pueden postear conteni
 * **Post**​: contenido generado por cada usuario. Cada post tiene un título, contenido y la fecha de su creación. Por cada post se permite realizar comentarios.
 * **Comment​**: son los comentarios asociados a cada post realizados por usuarios. Cada comentario tiene un texto que es escrito por la persona que comenta y la fecha en cual fue realizado.
 
-## Implementación
+## Procedimiento
 
 1. Creamos el proyecto;
 
@@ -153,5 +153,11 @@ ASPost​ es una aplicación en Rails donde las personas pueden postear conteni
         end
     end
     ```
+
+10. Para ver la aplicación en acción debemos ejecutar el comando `rails server` e ir a [http://localhost:3000/users/index]() luego de que el servidor termine de iniciar:
+
+    ![](docs/screenshot.png)
+
+## Implementación
 
 El código fuente del práctico completo está disponible en la [carpeta src](src/).
