@@ -12,3 +12,6 @@ user.save!
 post = Post.new title: 'Un nuevo post!', content: 'Contenido de ejemplo', date: Date.new
 post.user = user
 post.save
+
+post.categories << Category.new(code: 'generic', description: 'Categoría genérica')
+post.comments << Comment.new(text: 'Un nuevo comentario!', date: Date.new, user: user)
