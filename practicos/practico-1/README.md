@@ -172,3 +172,5 @@ ASPost es una aplicación en Rails donde las personas pueden postear contenido y
 ## Implementación
 
 El código fuente del práctico completo está disponible en la [carpeta src](src/).
+
+Para ver el código fuente asociado al desafío del práctico ver el [commit 7b0afc1](https://github.com/agurodriguez/ort-ingdesoft-asp/commit/7b0afc1bf7ef34e66e6f3d8d11e49ec493153228).
