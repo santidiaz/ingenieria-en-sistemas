@@ -9,6 +9,6 @@
 user = User.new name: 'Pedro', email: 'pedropicapiedra@gmail.com', password: '123456'
 user.save!
 
-post = Post.new title: 'Un nuevo post!', content: 'Contenido de ejemplo', data: Date.new
+post = Post.new title: 'Un nuevo post!', content: 'Contenido de ejemplo', date: Date.new
 post.user = user
 post.save
