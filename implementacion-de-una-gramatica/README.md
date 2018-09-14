@@ -83,6 +83,7 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
 
 * Un `while` seguido de una expresión entre paréntesis seguida de una sentencia: 
 
+    <p>
     <details>
     <summary>Ejemplo</summary>
 
@@ -90,6 +91,7 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
     while (i < 10) i++;
     ```
     </details>
+    </p>
 
     ```
     SWhile.  Stm ::= "while" "(" Exp ")" Stm ;
@@ -97,6 +99,7 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
 
 * Un `if` seguido de una expresión entre paréntesis, una sentencia, un `else`, y otra sentencia:
 
+    <p>
     <details>
     <summary>Ejemplo</summary>
 
@@ -107,6 +110,7 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
         return y;
     ```
     </details>
+    </p>
 
     ```
     SIfElse. Stm ::= "if" "(" Exp ")" Stm "else" Stm ;
@@ -114,6 +118,7 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
 
 * Un **bloque** (Cualquier lista de sentencias, incluida la lista vacía) entre llaves:
 
+    <p>
     <details>
     <summary>Ejemplo</summary>
     
@@ -126,6 +131,7 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
     }
     ```
     </details>
+    </p>
 
     ```
     SBlock.  Stm ::= "{" [Stm] "}" ;
