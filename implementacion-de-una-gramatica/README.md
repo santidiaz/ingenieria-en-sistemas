@@ -29,12 +29,14 @@ comment "/*" "*/" ;
 Una **definición de función** tiene un tipo, un nombre, una lista de argumentos y un cuerpo. La lista de argumentos se escribe entre paréntesis y los argumentos se separan con comas. El cuerpo es una lista de sentencias escrita entre llaves:
 
 <details>
-    <summary>Ejemplo</summary>
-    
-    int foo(double x, int y)
-    {
-        return y + 9;
-    }
+<summary>Ejemplo</summary>
+
+```cpp
+int foo(double x, int y)
+{
+    return y + 9;
+}
+```
 </details>
 
 ```
@@ -80,9 +82,11 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
 * Un `while` seguido de una expresión entre paréntesis seguida de una sentencia: 
 
     <details>
-        <summary>Ejemplo</summary>
+    <summary>Ejemplo</summary>
 
-        while (i < 10) i++;
+    ```cpp
+    while (i < 10) i++;
+    ```
     </details>
 
     ```
@@ -92,12 +96,14 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
 * Un `if` seguido de una expresión entre paréntesis, una sentencia, un `else`, y otra sentencia:
 
     <details>
-        <summary>Ejemplo</summary>
-    
-        if (x > 0) 
-            return x; 
-        else 
-            return y;
+    <summary>Ejemplo</summary>
+
+    ```cpp
+    if (x > 0) 
+        return x; 
+    else 
+        return y;
+    ```
     </details>
 
     ```
@@ -107,14 +113,16 @@ Una **sentencia** siempre termina en punto y coma y puede ser:
 * Un **bloque** (Cualquier lista de sentencias, incluida la lista vacía) entre llaves:
 
     <details>
-        <summary>Ejemplo</summary>
+    <summary>Ejemplo</summary>
     
+    ```cpp
+    {
+        int i = 2;
         {
-            int i = 2;
-            {
-            }
-            i++;
         }
+        i++;
+    }
+    ```
     </details>
 
     ```
@@ -207,7 +215,7 @@ token Id (letter (letter | digit | '_')*) ;
 
     Crear un archivo [`ejemplo.cpp`](https://raw.githubusercontent.com/agurodriguez/ort-ingdesoft-ldp/master/extras/implementacion-de-una-gramatica/ejemplo.cpp) con el siguiente contenido:
 
-    ```c
+    ```cpp
     // no "hello world" here 
     void fn(int param1, bool param2) {
         if (param1 > 0 && param2 == true) 
