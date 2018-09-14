@@ -28,6 +28,7 @@ comment "/*" "*/" ;
 
 Una **definición de función** tiene un tipo, un nombre, una lista de argumentos y un cuerpo. La lista de argumentos se escribe entre paréntesis y los argumentos se separan con comas. El cuerpo es una lista de sentencias escrita entre llaves:
 
+<p>
 <details>
 <summary>Ejemplo</summary>
 
@@ -38,6 +39,7 @@ int foo(double x, int y)
 }
 ```
 </details>
+</p>
 
 ```
 DFun.   Def ::= Type Id "(" [Arg] ")" "{" [Stm] "}" ;
