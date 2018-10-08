@@ -1,0 +1,3 @@
+[submodule "lenguajes-de-programacion/tareas"]
+	path = lenguajes-de-programacion/tareas
+	url = https://github.com/agurodriguez/ort-ingdesoft-ldp.git
