@@ -7,5 +7,7 @@
     1. [Introducción](implementacion-de-una-gramatica/#introducción)
     2. [Definición de la Gramática](implementacion-de-una-gramatica/#definición-de-la-gramática)
     3. [Implementación](implementacion-de-una-gramatica/#implementación)
+3. [Tareas](tareas/)
+    1. [Tarea 1 - Parser de Pascal](tareas/)
 10. [Extras](extras/)
     1. [Instalación BNFC + Haskell](extras/instalacion-bnfc-haskell)
