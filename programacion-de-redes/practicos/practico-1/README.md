@@ -22,9 +22,11 @@ Desarrolle una aplicación que ejecute un número al azar de threads o reciba 
 Se sugiere hacerlo con una variable estática. Ejecute la aplicación varias veces y vea si ocurren errores e intente deducir que es lo que ocurre.
 
 ## Ejercicio 3
+
 Desarrolle la misma aplicación que en el ejercicio 2 pero que esta vez no se produzcan errores.
 
 ## Ejercicio 4
+
 Desarrolle una aplicación que en un thread escriba por consola cien ceros, luego de terminar se debe indicar desde el thread principal que el nuevo thread terminó. Desarrolle la aplicación de dos maneras distintas.
 
 ## Ejercicio 5

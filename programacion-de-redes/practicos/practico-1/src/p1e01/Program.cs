@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace practico_1
+namespace p1e01
 {
     class Program
     {
