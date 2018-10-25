@@ -16,20 +16,32 @@ https://aulas.ort.edu.uy/pluginfile.php/322920/mod_folder/content/0/Práctico%20
 
 Desarrolle una aplicación que ejecute un número al azar de threads o reciba la misma cantidad por consola y que por cada thread escriba varias líneas por consola que diga "Bienvenidos a Programación de Redes 2018 – Thread X", donde X representa el numero de thread ejecutandose.
 
+[Ver código fuente](src/p1e01/Program.cs)
+
 ## Ejercicio 2
 
 Desarrolle una aplicación que ejecute un número al azar de threads o reciba la misma cantidad por consola y que el primer thread en estar activo escriba en consola "Bienvenidos a Programación de Redes 2018", luego de que un thread lo escriba una vez los demás no deberán hacerlo.
 
 Se sugiere hacerlo con una variable estática. Ejecute la aplicación varias veces y vea si ocurren errores e intente deducir que es lo que ocurre.
 
+[Ver código fuente](src/p1e02/Program.cs)
+
 ## Ejercicio 3
 
 Desarrolle la misma aplicación que en el ejercicio 2 pero que esta vez no se produzcan errores.
+
+[Ver código fuente](src/p1e03/Program.cs)
+
 
 ## Ejercicio 4
 
 Desarrolle una aplicación que en un thread escriba por consola cien ceros, luego de terminar se debe indicar desde el thread principal que el nuevo thread terminó. Desarrolle la aplicación de dos maneras distintas.
 
+[Ver código fuente](src/p1e04/Program.cs)
+
+
 ## Ejercicio 5
 
 Desarrolle una aplicación que tenga un método para recibir dos números y devuelva la suma, además de otro método que realice lo mismo con tres sumandos, deberá utilizar dos threads donde cada uno realizará un método distinto de los de sumar y luego mostrará individualmente la suma de cada operación y luego la suma total.
+
+[Ver código fuente](src/p1e05/Program.cs)
