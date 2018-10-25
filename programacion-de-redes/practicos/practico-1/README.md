@@ -19,6 +19,7 @@ Desarrolle una aplicación que ejecute un número al azar de threads o reciba 
 ## Ejercicio 2
 
 Desarrolle una aplicación que ejecute un número al azar de threads o reciba la misma cantidad por consola y que el primer thread en estar activo escriba en consola "Bienvenidos a Programación de Redes 2018", luego de que un thread lo escriba una vez los demás no deberán hacerlo.
+
 Se sugiere hacerlo con una variable estática. Ejecute la aplicación varias veces y vea si ocurren errores e intente deducir que es lo que ocurre.
 
 ## Ejercicio 3

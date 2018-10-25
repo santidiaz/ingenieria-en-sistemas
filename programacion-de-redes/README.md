@@ -1,4 +1,4 @@
-<h1 align="center">Prácticos</h1>
+<h1 align="center">Programación de Redes</h1>
 
 ## Contenido
 
