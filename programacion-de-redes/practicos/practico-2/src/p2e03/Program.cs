@@ -22,7 +22,7 @@ namespace p2e03
 
         static void CreatePersons(int threadId, int amount) 
         {
-            while (amount-- >= 0)
+            while (--amount >= 0)
             {
                 var person = new Person()
                 {
