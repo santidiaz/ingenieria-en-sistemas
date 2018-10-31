@@ -10,7 +10,3 @@
 3. Ejecutar `vagrant up` en el directorio donde se encuentra el archivo `Vagrantfile`.
 
 4. Ejecutar `vagrant ssh` para acceder al entorno de desarrollo con todos los componentes necesarios (`bnfc`, `ghc`, `make`, etc) para el curso.
-
-## Instalación manual
-
-[TODO]
