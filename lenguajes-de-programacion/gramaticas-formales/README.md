@@ -1,4 +1,4 @@
-<h1 align="center">Gramáticas Formales</h1>
+# Gramáticas Formales
 
 ## Bibliografía
 

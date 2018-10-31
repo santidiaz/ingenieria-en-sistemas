@@ -1,4 +1,4 @@
-<h1 align="center">Práctico 1</h1>
+# Práctico 1
 
 ## Bibliografía
 

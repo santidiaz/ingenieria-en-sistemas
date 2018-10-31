@@ -1,4 +1,4 @@
-<h1 align="center">Lenguajes de Programación</h1>
+# Lenguajes de Programación
 
 ## Contenido
 

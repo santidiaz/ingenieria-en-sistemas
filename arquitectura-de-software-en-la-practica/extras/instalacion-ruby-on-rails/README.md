@@ -1,4 +1,4 @@
-<h1 align="center">Instalación Ruby on Rails</h1>
+# Instalación Ruby on Rails
 
 ## Instalación "todo de una"
 

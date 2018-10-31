@@ -1,4 +1,4 @@
-<h1 align="center">Implementación de una Gramática</h1>
+# Implementación de una Gramática
 
 ## Bibliografía
 

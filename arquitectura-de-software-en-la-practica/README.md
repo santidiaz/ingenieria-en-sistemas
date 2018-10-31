@@ -1,4 +1,4 @@
-<h1 align="center">Arquitectura de Software en la Práctica</h1>
+# Arquitectura de Software en la Práctica
 
 ## Contenido
 

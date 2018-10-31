@@ -1,4 +1,4 @@
-<h1 align="center">Programación de Redes</h1>
+# Programación de Redes
 
 ## Contenido
 
