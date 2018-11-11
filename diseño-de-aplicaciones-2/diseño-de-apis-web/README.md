@@ -1,4 +1,4 @@
-<h1 align="center">Diseño de APIs Web</h1>
+# Diseño de APIs Web
 
 Las buenas prácticas de diseño presentadas en esta sección fueron extraídas del libro [Web API Design: Crafting Interfaces that Developers Love](https://pages.apigee.com/rs/apigee/images/api-design-ebook-2012-03.pdf
 ) de [Brian Mulloy](https://www.linkedin.com/in/brianmulloy/). Las mismas están profundamente influenciadas por [REST](#rest) por lo que resulta preciso profundizar en este concepto.

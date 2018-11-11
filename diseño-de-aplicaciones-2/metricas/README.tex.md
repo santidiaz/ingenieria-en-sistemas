@@ -1,4 +1,4 @@
-<h1 align="center">Métricas</h1>
+# Métricas
 
 Más info: https://aulas.ort.edu.uy/pluginfile.php/206903/course/section/37747/Principles_and_Patterns.pdf.
 

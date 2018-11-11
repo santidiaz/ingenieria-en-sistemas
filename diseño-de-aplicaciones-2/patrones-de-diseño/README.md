@@ -1,4 +1,4 @@
-<h1 align="center">Patrones de Diseño</h1>
+# Patrones de Diseño
 
 Más info: 
 

@@ -1,4 +1,4 @@
-<h1 align="center">UML</h1>
+# UML
 
 ## Modelo 4 + 1
 

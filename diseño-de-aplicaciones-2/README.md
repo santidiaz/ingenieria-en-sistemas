@@ -1,4 +1,4 @@
-<h1 align="center">Diseño de Aplicaciones 2</h1>
+# Diseño de Aplicaciones 2
 
 ## Contenido
 

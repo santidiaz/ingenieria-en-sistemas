@@ -1,4 +1,4 @@
-<h1 align="center">Principios de Diseño a Nivel de Paquetes</h1>
+# Principios de Diseño a Nivel de Paquetes
 
 Los principios de diseño presentados en esta sección fueron extraídos del libro [Design Principles and Design Patterns](https://aulas.ort.edu.uy/pluginfile.php/206903/course/section/37747/Principles_and_Patterns.pdf) de [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_Cecil_Martin), capítulo 
 *Principles of Package Architecture* (página 16).

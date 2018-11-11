@@ -1,4 +1,4 @@
-<h1 align="center">Máquinas de Estado</h1>
+# Máquinas de Estado
 
 Es una especificación de la secuencia de estados por las que transita un objeto a lo largo de su vida en respuesta a eventos.
 

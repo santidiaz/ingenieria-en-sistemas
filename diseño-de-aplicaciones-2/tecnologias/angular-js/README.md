@@ -1,4 +1,4 @@
-<h1 align="center">AngularJS</h1>
+# AngularJS
 
 Es un framework de JavaScript orientado a construir [aplicaciones web de una sola página]().
 
